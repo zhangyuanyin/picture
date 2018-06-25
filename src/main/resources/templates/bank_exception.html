@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <script th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+		<script th:src="@{https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+		<script th:src="@{https://cdn.bootcss.com/moment.js/2.18.1/moment-with-locales.min.js}"></script>
+		<script th:src="@{https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js}"></script>    
+		<link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>    
+		<link th:href="@{https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css}" rel="stylesheet"/>    
+        <meta charset="UTF-8"/>
+        <title>批量异常处理</title>
+    </head>
+
+    <body>
+        <div class="contentDiv">
+	        <table class="table table-hover table-condensed">
+	                <thead>
+	                    <tr>
+	                        <th>天津银行</th>
+	                    </tr>
+	                </thead>
+	                <tbody>
+	                	<tr>
+        					<td>
+        						<form id="dnform" th:action="@{/pic-api/batch/bank/except/upstatus}" th:method="post" th:object="${batchExceptionForm}">
+				                	<label class="col-sm-2 control-label" >状态日期</label>
+				                		<div class='col-sm-3'>
+				                			<div class="input-group"  >
+												<input type='text' class="form-control" id='statustime' name="date"/>
+												<span class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
+											</div>
+										</div>
+				                		<input type="submit" value="放款状态更新" class="btn btn-danger"/>
+							    </form>  
+        					</td>
+	                	</tr>
+	                	<tr>
+	                		<td>
+        						<form id="dnform" th:action="@{/pic-api/batch/bank/except/download}" th:method="post" th:object="${batchExceptionForm}">
+				                	<label class="col-sm-2 control-label" >下载日期</label>
+				                		<div class='col-sm-3'>
+				                			<div class="input-group"  >
+												<input type='text' class="form-control" id='downloadtime' name="date"/>
+												<span class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
+											</div>
+										</div>
+				                		<input type="submit" value="影像文件下载" class="btn btn-primary"/>
+							    </form>  
+        					</td>
+	                	</tr>
+	                	<tr>
+	                		<td>
+        						<form id="dnform" th:action="@{/pic-api/batch/bank/except/upload}" th:method="post" th:object="${batchExceptionForm}">
+				                	<label class="col-sm-2 control-label" >上传日期</label>
+				                		<div class='col-sm-3'>
+				                			<div class="input-group"  >
+												<input type='text' class="form-control" id='uploadtime' name="date"/>
+												<span class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
+											</div>
+										</div>
+				                		<input type="submit" value="影像文件上传" class="btn btn-primary"/>
+							    </form>  
+        					</td>
+	                	</tr>
+	                </tbody>
+	    	</table>
+        </div>
+    </body>
+    
+    <script type="text/javascript">
+	    $(function () {
+	        $("#statustime").datetimepicker({
+	            format: 'YYYY-MM-DD',
+	            locale: moment.locale('zh-cn')
+	        });
+	        $("#downloadtime").datetimepicker({
+	            format: 'YYYY-MM-DD',
+	            locale: moment.locale('zh-cn')
+	        });
+	        $("#uploadtime").datetimepicker({
+	            format: 'YYYY-MM-DD',
+	            locale: moment.locale('zh-cn')
+	        });
+	    });
+	    
+	    function getValue() {
+	    	alert($("#statustime").val());
+	    }
+    </script>
+</html>

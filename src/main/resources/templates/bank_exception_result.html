@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <script th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+		<script th:src="@{https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+		<link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>    
+        <meta charset="UTF-8"/>
+        <title>批量异常处理结果展示</title>
+    </head>
+
+    <body>
+        <div class="contentDiv" style="text-align: center; margin-top: 100px;">
+			<span th:text="${result}"></span><br/>
+    		<a class="btn btn-primary" th:href="@{/pic-api/batch/bank/except}">返回</a>
+        </div>
+    </body>
+    
+</html>
